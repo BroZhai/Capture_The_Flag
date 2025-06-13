@@ -1,2 +1,3 @@
 # Capture_The_Flag
-这是什么, 真好玩😋
+看我Capture你的Flag🚩<br/>
+![SpecialGuest](static/whoami.gif)
