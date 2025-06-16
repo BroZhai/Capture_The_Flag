@@ -1,0 +1,3 @@
+数据库: sqli
+库中表名: dlersxrcgr
+表中字段: yrqeedflge

